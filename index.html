@@ -1,0 +1,1076 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+	/* Extra small devices (phones, 600px and down) */
+	@media only screen and (max-width: 600px) {
+		h2 {font-size: 1em;}
+
+
+		#instruction-box h2 {
+			font-size: 1em;
+			line-height: 1.2em;
+		}
+
+		#instruction-box .description-text {
+			font-size: 1.3em;
+			line-height: 160%;
+			padding: 10px;
+			max-width: 100%;
+		}
+
+		#question-container {
+			margin: 40px;
+		}
+
+	}
+
+	.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+		color: #fff;
+	}
+
+
+	.content-wrapper {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid #aaaaaa;
+		box-shadow: 0 5px 5px 2px rgba(0,0,0,.1);
+		background: #42a5f6;
+		width: 100%;
+		color: #fff;
+	}
+
+	.button-container {
+		text-align: center;
+		width: 100%;
+		padding-bottom: 20px;
+	}
+
+	.home-header {
+		background: #f6f6f6;
+		color: #2c499a;
+		padding: 12px;
+	}
+	.home-content {
+		text-align: center;
+		width: 100%;
+	}
+
+	.home-content h1, 
+	.home-content h2 {
+		color: #2c499a;
+		letter-spacing: 0.06em;
+		text-transform: capitalize;
+		margin: 12px;
+	}
+
+
+	.quiz-content {
+		text-align: center;
+		height: 100%;
+		width: 100%;
+	}
+
+	.button-content {
+		flex: 1;
+		border: 1px solid #000;
+		text-align: left;
+		padding: 20px;
+		text-align: center;
+	}
+
+	.logo-img {
+		max-width: 200px;
+	}
+
+	#question-box {
+		margin: 0px;
+		min-height: 700px;
+		max-height: 100%;
+		flex-direction: column;
+		justify-content: center;
+		align-content: space-between;
+	}
+
+	#question-box textarea{
+		width: 100%;
+		padding: 12px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+
+	#question-container {
+		margin: 40px;
+	}
+
+	#timer-box {
+		font-size: 24px;
+		color: #2c499a;
+		background: rgba(0,0,0,0.05);
+		border-radius: 6px;
+		margin: 40px;
+		padding: 10px;
+	}
+
+	#details-box {
+		width: 100%;
+		color: #2c499a;
+		font-weight: bold;
+	}
+
+	#instruction-box {
+		padding-bottom: 40px;
+		min-height: 700px;
+		max-height: 100%;
+	}
+
+	#instruction-box h2 {
+	}
+
+	#instruction-box .description-text {
+		font-size: 1.3em; 
+		padding: 60px;
+		line-height: 160%;
+	}
+
+	.content h4 {
+		text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+	}
+
+	@keyframes showText {
+		from {color: #0099ff;}
+		to {color: #ffffff;}
+	}
+
+	#instruction-box .icon {
+		margin: 10px 0px;
+		max-width: 100px; 
+	}
+
+	#instruction-box button {
+	}
+
+	.random-icon {
+		max-width: 20px;
+		margin: 10px 0px;
+	}
+
+	.control-button {
+		margin: 6px;
+		padding: 8px 10px;
+		background: rgba(0,153,255,0.7);
+		color: #fff;
+		text-transform: uppercase;
+		border-radius: 6px;
+		-webkit-transition: background 1s; /* Safari */
+		transition: background 1s;
+		border-color: rgba(0,0,0,0.2);
+
+	}
+
+	.control-button:hover {
+		background: #0099ff;
+		color: #ffffff;
+	}
+
+	.type-button {
+		padding: 12px 0px;
+		background: #2c499a;
+		color: #fff;
+		border: 1px solid #141253;
+		text-transform: uppercase;
+		margin: 20px;
+		font-size: 1em;
+		border-radius: 10px;
+		-webkit-transition: background 1s;
+		transition: background 1s;
+		min-width: 200px;
+		border-bottom: 3px solid #141253;
+	}
+	
+	.type-button:hover, 	
+	.grey-button:hover {
+		background: #141253;
+	}
+
+	.type-button img {
+		max-width: 100px;
+		margin: 10px 0px;
+	}
+
+	.timer-button {
+		margin: 6px;
+		padding: 12px 0px;
+		background: #ececec;
+		color: #fff;
+		border: 1px solid;
+		text-transform: uppercase;
+		font-size: 10px;
+	}
+
+	.question-text {
+		text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+		line-height: 1.4em;
+	}
+
+	.question-header {
+		align-items: center;
+		min-height: 20px;
+		margin-bottom: 10px;
+		padding: 20px;
+		background: rgba(0,0,0,0.1);
+		font-weight: bold;
+		color: #2c499a;
+	}
+
+	.grey-button {
+		padding: 12px 0px;
+		background: #0099ff;
+		color: #EEEEEE;
+		border: 1px solid rgba(0,0,0,0.2);
+		border-bottom: 3px solid rgba(0,0,0,0.2);
+		text-transform: uppercase;
+		margin: 20px;
+		font-size: 1em;
+		border-radius: 10px;
+		min-width: 200px;
+
+		-webkit-transition: background 1s; /* Safari */
+		transition: background 1s;
+	}
+
+	.casper-questions {
+
+	}
+
+	.casper-questions p {
+		margin-bottom: 10px;
+	}
+
+	h2.background {
+		position: relative;
+		z-index: 1;
+	}
+
+	h2.background:before {
+		border-top: 2px solid #dfdfdf;
+		content:"";
+		margin: 0 auto; /* this centers the line to the full width specified */
+		position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+		top: 50%; left: 0; right: 0; bottom: 0;
+		width: 95%;
+		z-index: -1;
+	}
+
+	h2.background span { 
+		/* to hide the lines from behind the text, you have to set the background color the same as the container */ 
+		background: #fff; 
+		padding: 0 15px; 
+	}
+
+	.tip-icon {
+		max-width: 20px;
+	}
+
+	#btn-reset, #btn-stop, #btn-play {
+		font-size: 6pt;
+	}
+	
+	.home-body {
+		padding: 20px;
+	}
+
+	.main-header {
+		padding: 20px 10px;
+		width: 100%;
+		font-size: 32px;
+	}
+
+
+	.main-header h1 {
+		color: #141253 !important;
+	}
+</style>
+<body>
+	<div class="">
+		<div class="has-text-centered main-header">
+			<h1 class="">Medical School Interview Question Generator</h1>
+		</div>
+		<div class="content-wrapper">
+			<div class="home-content">
+			</div>
+			<div class="quiz-content">
+				<div id="instruction-box">	
+				</div>
+				<div id="question-box">
+					<div class="question-header">
+						<div class="columns">
+							<div class="column">
+								<div id="details-box"></div>
+							</div>
+						</div>
+					</div>
+					<div id="timer-box" class="has-text-centered-mobile">60 seconds</div>
+					<div id="question-container">
+					</div>
+					<div class="button-container has-text-centered-mobile ">
+						<button class="control-button" id="btn-back"><i class="fas fa-arrow-circle-left"></i></button>
+						<button class='control-button' id='start-over'><i class="fas fa-home"></i></button>
+						<button class="control-button" id="btn-next"><i class="fas fa-arrow-circle-right"></i></button>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		
+		console.log('Its working');
+
+		window.onload = function() {
+			$("#btn-restart").on("click", stopTimer);
+			$("#btn-next").on("click", showNextQuestion);
+			$("#btn-back").on("click", showPrevQuestion);
+
+			$(".footer-newsletter").hide();
+
+	// loadVideo();
+	randomize();
+	showStart();
+};
+
+let questionSet = [
+q1 = {
+	text: "A 14-year-old patient requests birth control pills from you and asks that you not tell her parents. What would you do?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q2 = {
+	text: "A member of your family decides to depend solely on alternative medicine for treatment of his or her significant illness. What would you do?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q3 = {
+	text: "If you have the choice of giving a transplant to a successful elderly member of the community or a 20-year-old drug addict – how do you choose?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q4 = {
+	text: "An 18-year-old female arrives in the emergency room with a profound nose bleed. You are the physician, and you have stopped the bleeding. She is now in a coma from blood loss and will die without a transfusion. A nurse finds a recent signed card from Jehovah's Witnesses Church in the patient's purse refusing blood transfusions under any circumstance. What would you do?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q5 = {
+	text: "A Vancouver bio-tech company was hired by the US Military to develop a cure for Ebola. They successfully developed a vaccine to treat the symptoms of the virus and lowered the mortality rate for infected patients. Discuss the implications of this on a global scale.",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q6 = {
+	text: "Your mother calls you and asks you to help with a major family decision. Your maternal grandfather is 70 years old and has been diagnosed with a condition that will kill him some time in the next five years. He can have a procedure that will correct the disease and not leave him with any long-term problems, but the procedure has a 10% mortality rate. He wants to have the procedure, but your mother does not want him to. How would you help mediate this issue?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q7 = {
+	text: "You are a genetic counselor. One of your clients, Linda, had a boy with a genetic defect that may have a high recurrence risk, meaning her subsequent pregnancies have a high chance of being affected by the same defect. You offered genetic testing of Linda, her husband, and their son to find out more about their disease, to which everyone agreed. The result showed that neither Linda nor her husband carry the mutation, while the boy inherited the mutation on a paternal chromosome that did not come from Linda's husband. In other words, the boy's biological father is someone else, who is unaware that he carries the mutation. You suspect that Linda nor her husband are aware of this non-paternity. How would you disclose the results of this genetic analysis to Linda and her family? What principles and who do you have to take into consideration in this case?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q8 = {
+	text: "A woman enters the emergency room with stomach pain. She undergoes a CT scan and is diagnosed with an abdominal aortic aneurysm. The physicians inform her that the only way to fix the problem is surgically, and that the chances of survival are about 50/50. They also inform her that time is of the essence, and that should the aneurysm burst, she would be dead in a few short minutes. The woman is an exotic dancer; she worries that the surgery will leave a scar that will negatively affect her work; therefore, she refuses any surgical treatment. Even after much pressuring from the physicians, she adamantly refuses surgery. Feeling that the woman is not in her correct state of mind and knowing that time is of the essence, the surgeons decide to perform the procedure without consent. They anesthetize her and surgically repair the aneurysm. She survives, and sues the hospital for millions of dollars. Do you believe that the physician's actions can be justified in any way? Is it ever right to take away someone's autonomy?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q9 = {
+	text: "You are a general practitioner and a mother comes into your office with her child who is complaining of flu-like symptoms. Upon entering the room, you ask the boy to remove his shirt and you notice a pattern of bruises on the boy's torso. You ask the mother where the bruises came from, and she tells you that they are from a procedure she performed on him known as 'cao gio,' which is also known as 'coining.' The procedure involves rubbing warm oils or gels on a person's skin with a coin or other flat metal object. The mother explains that cao gio is used to raise out bad blood, and improve circulation and healing. When you touch the boy's back with your stethoscope, he winces in pain from the bruises. You debate whether or not you should call Child Protective Services and report the mother. When should a physician step in to stop a cultural practice? Should the physician be concerned about alienating the mother and other people of her ethnicity from modern medicine?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q10 = {
+	text: " A patient with Downs Syndrome became pregnant. The patient does not want an abortion. Her mother and husband want the patient to have an abortion. What should a physician do in this situation?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q11 = {
+	text: "A 12-year-old boy is diagnosed with a terminal illness (e.g., malignancy). He asked the doctor about his prognosis. His parents requested the doctor not to tell him the bad news. What should the doctor do in this situation?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q12 = {
+	text: "A couple has decided to have a child through artificial insemination. They asked the physician for sex selection of the child. What should a physician advise in this situation?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q13 = {
+	text: "A physician became sexually involved with a current patient who initiated or consented to the contact. Is it ethical for a physician to become sexually involved?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q14 = {
+	text: "A 17-year-old boy lives independently. He is married and has one child. He wants to participate in a medical research study. Does he need his parents’ permission?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q15 = {
+	text: "A physician went on vacation for two weeks. He did not find another physician to cover him. One of his patients with hypertension developed severe headaches. The patient has an appointment with the doctor as soon as he comes back from vacation. The patient did not look for another physician and decided to wait. The patient suddenly collapses and was diagnosed to have intracranial hemorrhage. Is the physician responsible for this patient?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q16 = {
+	text: "A 40-year-old schizophrenic patient needs hernia repair. The surgeon discussed the procedure with the patient who understood the procedure. Can the patient give consent?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q17 = {
+	text: "A physician picked up a car accident victim from the street and brought him to the ER in his car. He did not want to wait for an ambulance because the patient’s condition was critical. Physical examination in the ER reveals quadriplegia. Is the physician liable for this consequence?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q18 = {
+	text: "As a physician at a local hospital, you notice that there is a man with an alcohol dependency who keeps on consuming the hand sanitizer offered at the hand sanitizer stands throughout the hospital. He is not a patient at the hospital at present but has been many times in the past. Consequently, there is often no hand sanitizer for public use. What do you do? Do you remove/change location of hand sanitizer stands? Do you approach him?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q19 = {
+	text: "A 18-year-old man is diagnosed to have suspected bacterial meningitis. He refuses therapy and returns to the college dormitory. What should a physician do in this situation?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q20 = {
+	text: "Is it ethical for doctors to strike? If so, under what conditions?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q21 = {
+	text: "There is an outbreak of an incredibly contagious life-threatening disease. The disease is spreading across the country at a rapid rate and the survival rate is less than 50%. You are a senior health care administrator, and when the vaccine is developed, you have priority to receive the drug. Do you take the vaccine yourself or give it to another person? Why or why not?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q22 = {
+	text: "You are a health researcher at an academic institution. You have been asked to work on a top-secret vaccine that would treat biomedical weapons or other communicable diseases. Before your break through, you are instructed by the government to stop all research and turn over all materials and copies of your work to be destroyed. You know you are very close to finding a cure. What do you do?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q23 = {
+	text: "A patient requests needles and syringes at his/her local pharmacy. They do not present with a prescription, and based on the records you can access, they are not receiving treatment for diabetes. Do you sell the syringes or not?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q24 = {
+	text: "Dr. Blair recommends homeopathic medicines to his patients. There is no scientific evidence or widely accepted theory to suggest that homeopathic medicines work, and Dr. Blair doesn't believe them to. He recommends homeopathic medicine to people with mild and non-specific symptoms such as fatigue, headaches, and muscle aches, because he believes that it will do no harm, but will give them reassurance. Consider the ethical problems that Dr. Blair’s behaviour might pose. Discuss.",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q25 = {
+	text: "The man who lives next door to you often rides his bicycle in the company of his two young children but without a helmet. In fact, on several occasions you have seen him riding with his helmet hanging by its straps from the handlebars. His young children sometimes wear a helmet, sometimes not. If the man fell off his bicycle and hurt his head in a way that would have been prevented if he had worn a helmet, would it be reasonable to ask him to contribute towards the treatment costs for his injury?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q26 = {
+	text: "Due to a shortage of physicians in rural communities, some policy-makers have suggested that medical programs preferentially admit students who are willing to commit to a 2 or 3 year tenure in rural areas after graduation. Consider the broad implications of this policy for health care and the costs associated. Will this policy be effective?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q27 = {
+	text: "Consider a mistake you made in the past that had a significant impact on another person. How did you handle the situation? What would you do differently now, and why?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q28 = {
+	text: "Discuss a challenging situation where you were not sure of how to proceed.",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q29 = {
+	text: "Imagine you are president of the freshman medical school class. As president, the individual assumes responsibility for the actions of others which is sometimes difficult. One of your classmates is distraught over the unexpected death of a parent and seeks your support. On your way to meet that classmate, you run into another who is quite upset about the intramural schedule that was designed because it conflicts with the class community service project and wants you to change it immediately. As you get into your car, you glance at your watch and realize that you are at least an hour late picking up your child from daycare. Discuss how you would deal with the above demands on your personal and professional life. Specifically, what aspects of your personality would allow you to persevere in the above situation?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q30 = {
+	text: "You are shopping and notice another patron remove an item from the shelf and walk past the sales counter towards the exit. This patron walks in such a determined fashion directly towards the exit that it seems obvious that they intend to leave the store without paying for the item. Discuss this situation with the rater. What would you do?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q31 = {
+	text: "A close friend in one of your university classes tells you that his mother was recently diagnosed with breast cancer. He feels overwhelmed by his studies and is considering dropping his courses to spend more time with his mother. How do you counsel your friend?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q32 = {
+	text: "Discuss one of your pastimes outside of school and how the skills you acquired from this activity will help you in your career.",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q33 = {
+	text: "Joe is a pizza delivery worker. The pizza shop he works for has a 30 minutes or less delivery guarantee or else the customer does not have to pay. On Joe\'s most recent delivery, he spots a woman who appears to be injured. There is no one else around and the woman seems to be unable to move by herself. However, Joe knows that if he returns empty handed again, he will be fired from this job which he most desperately needs. What do you think Joe should do? Justify your solution in terms of practical and ethical considerations.",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q34 = {
+	text: "“Liberation Therapy” (LT), a vascular operation developed to potentially cure multiple sclerosis (MS) in certain patients, has recently come under very serious criticism - delaying its widespread use. Among other experimental flaws, critics cite a small sample size in the original evidence used to support LT. As a healthcare policy maker, your job is to weigh the pros and cons in approving novel drugs and therapies. Please discuss the issues you would consider during an approval process for LT.",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q35 = {
+	text: "You are a family physician seeing Jane, a 67-year-old woman with a recent history of multiple fragility fractures. You diagnose her with osteoporosis and prescribe some bisphosphonate drugs and other pharmacological treatments. Jane tells you that she has heard some good things over the internet about alternative medicine treatments such as Chinese medicine, and she is adamant on trying these as well. You are concerned about the use of these alternative medicine treatments and the possible negative effects they could have on Jane’s health. How would you handle the situation and what would you recommend Jane do? Discuss any ethical considerations that are present.",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q36 = {
+	text: "You are on the committee for selecting a new Dean of Science. What characteristics and/or qualities would you look for when selecting an effective dean?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q37 = {
+	text: "Clostridium Difficile (C. difficile) is a type of bacteria that increases its activity with most antibiotic use, and is therefore very difficult to treat. Research shows that the most effective way to prevent the spread of infection is frequent handwashing. However, many people have flat-out refused to wash their hands in hospitals. The government is contemplating passing a policy to make it mandatory for people entering hospitals to wash their hands or else risk not being seen by doctors and being escorted out of the building against their will. Do you think the government should go ahead with this plan? Consider and discuss the legal, ethical or practical problems that exist for each action option and conclude with a persuasive argument supporting your decision.",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q38 = {
+	text: "Discuss an experience that allowed you to learn something important about yourself. How will this lesson help you succeed in your career?",
+	category: "mmi",
+	instructions: "<h4>You have 2 minutes to read and consider the following <span>MMI</span> prompt, then 8 minutes to answer the question. <h4/><p><small><i>(In a real MMI, the time may vary. You would also be asked follow up questions related to your response.)</i></small></p>",
+},
+q39 = {
+	text: "Where do you see yourself in 10 years?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q40 = {
+	text: "Why do you want to be a doctor?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q41 = {
+	text: "What got you interested initially in medicine?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q42 = {
+	text: "Tell me about a time when you had to compromise.",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q43 = {
+	text: "Tell me about a time when you made a mistake. What did you do and how did you correct it?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q44 = {
+	text: "What was the most stressful situation you ever faced? How did you handle it?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q45 = {
+	text: "Tell me about a time when you collaborated on a successful project.",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q46 = {
+	text: "Tell me about yourself.",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q47 = {
+	text: "What is the one thing you want me to convey to the admission committee?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q48 = {
+	text: "What is the biggest challenge that is facing the medical field today?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q49 = {
+	text: "Why choose medicine over some other career in health?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q50 = {
+	text: "What makes you particularly interested in this school?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q51 = {
+	text: "How have you enjoyed your undergraduate experience? What would you change?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q52 = {
+	text: "What field of medicine interests you most?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q53 = {
+	text: "How did you choose to major in _____________?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q54 = {
+	text: "What non-science courses did you like the most?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q55 = {
+	text: "What do you think you will find most difficult about medical school?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q56 = {
+	text: "What are your strong points? What are your weaknesses?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q57 = {
+	text: "What has been your biggest failure, and how did you handle it?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q58 = {
+	text: "What have you done that shows initiative? What did you gain from that experience? How were you most/least satisfied with that endeavor?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q59 = {
+	text: "How do you respond to criticism? Describe a situation where your work was criticized. What was your immediate reaction to the situation?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q60 = {
+	text: "What are the negative aspects of being a doctor?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q61 = {
+	text: "How would friends describe you?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q62 = {
+	text: "What do you think is the most important quality a physician should have?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q63 = {
+	text: "Are you interested in research? How do you imagine the balance of research and clinical work in your future?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q64 = {
+	text: "Describe a situation in which you felt like a fish out of water.",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q65 = {
+	text: "Tell me about a time when you got into a conflict with someone else. How was it resolved?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q66 = {
+	text: "What do you do for fun?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q67 = {
+	text: "If you couldn’t be a physician, what career would you choose?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q68 = {
+	text: "How do you see the field of medicine changing in the next ten years? How do you see yourself fitting into those changes?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q69 = {
+	text: "What is the one thing you would change about the American healthcare system?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q70 = {
+	text: "What is your opinion about what we can do about the high cost of healthcare?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q71 = {
+	text: "How would you react if a colleague wanted you to keep a medical error they made a secret from a patient?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q72 = {
+	text: "What would you do if a 15-year-old came into your clinic and wanted an abortion?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q73 = {
+	text: "What would you do if you were seeing a patient in the emergency room and he or she wants to leave against medical advice?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q74 = {
+	text: "What do you think about physician-assisted suicide? Alternative medicine?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q75 = {
+	text: "There are 1,000 applicants as qualified as you. Why should we pick you?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q76 = {
+	text: "What steps have you taken to acquaint yourself with what a physician does?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q77 = {
+	text: "What will you do if you don’t get into medical school?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q78 = {
+	text: "How do you think your role as a physician fits in with your role as a member of the community?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q79 = {
+	text: "Is medicine a rewarding experience? Why?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q80 = {
+	text: "Would you practice in the inner city? What do you think happens to people who practice medicine there (attitude changes, etc.)?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q81 = {
+	text: "What aspects of your life’s experiences do you think make you a good candidate for medical school?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q82 = {
+	text: "How do you plan to finance your medical education?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q83 = {
+	text: "What will you do if you fail to gain admission to medical school this year?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q84 = {
+	text: "If you could sit down and have a conversation with anyone in the world, who would you choose and why?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q85 = {
+	text: "What is your relationship with your family?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q86 = {
+	text: "Discuss a book that you have recently read for pleasure. Why does this book interest you?",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q87 = {
+	text: "Describe a situation in which you felt like a fish out of water. ",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+},
+q88 = {
+	text: "Tell me about any volunteer experiences in which you have participated.",
+	category: "traditional",
+	instructions: "<h4>You have 2 minutes to answer the following traditional interview question.</h4>",
+}
+
+];
+
+
+let newQuestionSet;
+newQuestionSet = [];
+
+// Randomize the array of interview questions
+function randomize() {
+	questionSet.sort(function(a, b){return 0.5 - Math.random()});
+	console.log("questions",newQuestionSet);
+}
+
+// What to show at the beginning of the survey
+function showStart() {
+
+	console.log('Starting');
+	qNum = 0;
+
+	// Hide the unused divs
+	$(".quiz-content").hide();
+	$('.home-content').show();
+
+	// Add the generator instructions to the first page
+	$('.home-content').html("<div class='content home-body'><h4>Practice traditional and MMI medical school interview questions or choose random for a surprise.</h4><p>Select the type of question below to start practicing. Good luck!</p></div>");
+	// $('.home-content').append("<img class='logo-img' src='http://static1.squarespace.com/static/53c68360e4b074eb167e705d/t/57105bbcf850828b89ab3712/1529955762621/?format=1000w'>");
+	// Define and append the buttons to the beginning of the survey
+	let startButton = '<button class="grey-button" id="btn-start" name="start"><img class="random-icon" src="https://static1.squarespace.com/static/53064d44e4b0fb69071da381/54da6721e4b05813e8332b2b/5b4596e2f950b713d5eda527/1531287267584/random_icon.png?format=500w" style="width: 24px; height: 24px;"/><br/>Random</button>';
+	let mmiButton = '<button class="type-button" name="mmi" id="btn-mmi"> <img class="icon" src="https://static1.squarespace.com/static/53064d44e4b0fb69071da381/54da6721e4b05813e8332b2b/5b351778f950b7043a8e96f4/1530206073151/icon_mmi_interview.png?format=500w"/><br/>MMI</button>';
+	let traditionalButton = '<button class="type-button" name="traditional" id="btn-trad"><img class="icon" src="https://static1.squarespace.com/static/53064d44e4b0fb69071da381/54da6721e4b05813e8332b2b/5b3519428a922d1856ec8131/1530206531671/icon_trad_interview.png?format=500w"/><br/>Traditional</button>';
+	$("#btn-mmi").slideDown(3000);
+	$('.home-body').append(mmiButton).append(traditionalButton).append(startButton);
+
+	// On start button click, show the first question
+	$("#btn-start").on("click", selectQuestions);
+
+	// On button click, select only the questions that match 
+	$("#btn-mmi").on("click", selectQuestions);
+	$("#btn-trad").on("click", selectQuestions);
+
+}
+
+// Define question number and start at 0
+let qNum;
+
+function showInstructions() {
+
+	console.log('Instructions for Question Number', qNum);
+
+	// Hide the home content and show the quiz content
+	$(".home-content").hide();
+	$(".quiz-content").show();
+
+	//Hide the control buttons
+	$("#btn-next").hide();
+	$("#btn-back").hide();
+	$("#start-over").hide();
+
+	
+	$("#instruction-box").show();
+	$("#question-box").hide();
+
+	let categoryTransformed;
+	
+	if (newQuestionSet[qNum].category === "mmi") {
+		categoryTransformed = "MMI";
+	} else if(newQuestionSet[qNum].category === "Traditional") {
+		categoryTransformed = "Traditional";
+	} else {
+		categoryTransformed = "Traditional";
+	}
+
+	$("#instruction-box").html("<div class='description-text content'><h4><i class='fas fa-bookmark'></i> INSTRUCTIONS</h4>"+newQuestionSet[qNum].instructions+"</div>");
+	$("#instruction-box").append('<div><button class="grey-button" id="btn-ready">Ready!</button></div>');
+	$('#instruction-box').prepend('<div class="question-header"><div>'+categoryTransformed+' | Question '+ [qNum+1]+'</div></div>');
+	$("#btn-ready").on("click", showQuestion);
+
+}
+
+
+function selectQuestions() {
+	console.log('Selecting questions');
+
+	newQuestionSet = [];
+
+	for (var i = 0; i < questionSet.length; i++) {
+		if(questionSet[i].category === this.name) {
+			newQuestionSet.push(questionSet[i]);
+		} else if (this.name === 'start') {
+			newQuestionSet.push(questionSet[i])
+		}
+	}
+
+	console.log(newQuestionSet);
+
+	showInstructions();
+
+}
+
+
+// Show the first question in the array
+function showQuestion() {
+
+	console.log('Show New Questions', newQuestionSet);
+	console.log(qNum);
+	console.log(newQuestionSet[qNum]);
+
+	// Show the quiz content
+	$("#question-box").show();
+	$(".button-container").show();
+	$("#instruction-box").hide();
+	$("#tip-box").hide();
+	$("#start-over").on("click", showStart);
+
+	if (qNum <= 0) {
+		$("#btn-next").show();
+		$("#start-over").show();
+
+	} else if (qNum > 0) {
+		$("#btn-next").show();
+		$("#btn-back").show();
+		$("#start-over").show();
+	}
+
+	let categoryTransformed;
+	
+	if (newQuestionSet[qNum].category === "mmi") {
+		categoryTransformed = "MMI";
+	} else if(newQuestionSet[qNum].category === "traditional") {
+		categoryTransformed = "Traditional";
+	} else {
+		categoryTransformed = "Traditional";
+	}
+
+	$('#details-box').html('<div>'+categoryTransformed+' | Question '+ [qNum+1]+'</div>');
+
+
+	// Show the question
+	$('#question-container').html('<div><h4 class="question-text is-size-4" style="display:none;">'+newQuestionSet[qNum].text+'</h4></div>');
+	$('.question-text').slideDown("slow").animate({left: '250px'});
+
+	let textArea = '<textarea placeholder="Type your answer" rows="10"></textarea>';
+
+	startTimer();
+
+}
+
+// Display the next question
+function showNextQuestion() {
+
+	qNum = qNum + 1;
+
+	console.log('Current question #', qNum);
+
+	$('#tip-box').hide();
+	$('#question-box').hide();
+	stopTimer();
+
+	$("#instruction-box").show()
+
+	if (qNum < newQuestionSet.length) {
+		showInstructions();
+	} else if (qNum >= newQuestionSet.length) {
+		$(".button-container").hide();
+		$("#timer-box").hide();
+		$("#instruction-box").show().html("<div class='description-text'>Sorry, we're out of questions!<br/><button class='grey-button' id='start-over'>Start Over</button></div>");
+		$("#start-over").on("click", showStart);
+	} else {
+		$(".button-container").hide();
+		$("#timer-box").hide();
+		$("#instruction-box").html("Error!");
+	}
+
+}
+
+
+function showPrevQuestion() {
+
+	if (qNum > 0) {
+		qNum = qNum - 1;
+	} else if (qNum <= 0) {
+		qNum = 0;
+	}
+	
+
+	console.log(newQuestionSet.length);
+	console.log('Current question #', qNum);
+
+	$('#tip-box').hide();
+	$('#question-box').hide();
+	stopTimer();
+
+	if (qNum < newQuestionSet.length) {
+		showInstructions();
+	} else if (qNum >= newQuestionSet.length) {
+		$('#question-box').hide();
+		$("#instruction-box").show().html("<h3>Sorry! We're out of questions! Start over now</h3>");
+	} else {
+		$("#instruction-box").html("Error!");
+	}
+
+}
+
+
+
+// Start timer with 60 seconds
+let qTime;
+let countDown;
+
+function startTimer() { 
+
+	console.log('Timer for question', newQuestionSet[qNum].category);
+	$('#timer-box').show();
+
+	clearInterval(countDown);
+	countDown = setInterval(timerCount, 1000);
+
+	if( newQuestionSet[qNum].category === 'traditional' ) {
+		qTime = 121;
+	} else if( newQuestionSet[qNum].category === 'mmi') {
+		qTime = 601;
+	} else {
+		qTime = 0;
+	};
+
+	$('#timer-box').html(qTime);
+
+	timerCount();
+};
+
+
+function timerCount() {
+
+	// Reduce time
+	qTime--; 
+
+	secondsTimeSpanToHMS(qTime);
+
+	function secondsTimeSpanToHMS(qTime) {
+	    var h = Math.floor(qTime/3600); //Get whole hours
+	    qTime -= h*3600;
+	    var m = Math.floor(qTime/60); //Get remaining minutes
+	    qTime -= m*60;
+
+	    let qTimeNew = (m < 10 ? '0'+m : m)+":"+(qTime < 10 ? '0'+qTime : qTime);
+
+		// Print new time to timer box
+		$('#timer-box').html('<span>' + qTimeNew +'</span>').append('<div><button class="control-button" id="btn-reset"><i class="fas fa-redo-alt"></i></button><button class="control-button" id="btn-play"><i class="fas fa-play"></i></button><button class="control-button" id="btn-stop"><i class="fas fa-pause"></i></button></div>');
+	}
+
+	$("#btn-stop").on("click", stopTimer);
+	$("#btn-play").on("click", playTimer);
+	$("#btn-reset").on("click", resetTimer);
+
+	//When time is 0 ...
+	if (qTime <= 0) {
+		// Stop timer at 0
+		clearInterval(countDown);
+	}
+}
+
+//TODO show next online if question is past the first one
+
+
+// Sets timer to zero and shows the tip
+function stopTimer() {
+	clearInterval(countDown);
+	console.log('Stop timer', qTime);
+}
+
+function resetTimer() {
+	startTimer();
+	console.log('reset');
+}
+
+
+function playTimer() {
+	console.log(qTime);
+	clearInterval(countDown);
+	countDown = setInterval(timerCount, 1000);
+	timerCount();
+}
+
+</script>
+</body>
