@@ -159,7 +159,7 @@
 	}
 
 	.random-icon {
-		max-width: 20px;
+		max-width: 150px;
 		margin: 10px 0px;
 	}
 
@@ -183,9 +183,9 @@
 
 	.type-button {
 		padding: 12px 0px;
-		background: #2c499a;
-		color: #fff;
-		border: 1px solid #141253;
+		background: #fff;
+		color: #2c499a;
+		border: 1px solid #ddd;
 		text-transform: uppercase;
 		margin: 20px;
 		font-size: 1em;
@@ -193,16 +193,16 @@
 		-webkit-transition: background 1s;
 		transition: background 1s;
 		min-width: 200px;
-		border-bottom: 3px solid #141253;
+		border-bottom: 3px solid #ddd;
 	}
-	
-	.type-button:hover, 	
+
+	.type-button:hover,
 	.grey-button:hover {
-		background: #141253;
+		background: #f0f0f0;
 	}
 
 	.type-button img {
-		max-width: 100px;
+		max-width: 150px;
 		margin: 10px 0px;
 	}
 
@@ -233,10 +233,10 @@
 
 	.grey-button {
 		padding: 12px 0px;
-		background: #0099ff;
-		color: #EEEEEE;
-		border: 1px solid rgba(0,0,0,0.2);
-		border-bottom: 3px solid rgba(0,0,0,0.2);
+		background: #fff;
+		color: #2c499a;
+		border: 1px solid #ddd;
+		border-bottom: 3px solid #ddd;
 		text-transform: uppercase;
 		margin: 20px;
 		font-size: 1em;
@@ -816,9 +816,9 @@ function showStart() {
 	$('.home-content').html("<div class='content home-body'><h4>Practice traditional and MMI medical school interview questions or choose random for a surprise.</h4><p>Select the type of question below to start practicing. Good luck!</p></div>");
 	// $('.home-content').append("<img class='logo-img' src='http://static1.squarespace.com/static/53c68360e4b074eb167e705d/t/57105bbcf850828b89ab3712/1529955762621/?format=1000w'>");
 	// Define and append the buttons to the beginning of the survey
-	let startButton = '<button class="grey-button" id="btn-start" name="start"><img class="random-icon" src="https://static1.squarespace.com/static/53064d44e4b0fb69071da381/54da6721e4b05813e8332b2b/5b4596e2f950b713d5eda527/1531287267584/random_icon.png?format=500w" style="width: 24px; height: 24px;"/><br/>Random</button>';
-	let mmiButton = '<button class="type-button" name="mmi" id="btn-mmi"> <img class="icon" src="https://static1.squarespace.com/static/53064d44e4b0fb69071da381/54da6721e4b05813e8332b2b/5b351778f950b7043a8e96f4/1530206073151/icon_mmi_interview.png?format=500w"/><br/>MMI</button>';
-	let traditionalButton = '<button class="type-button" name="traditional" id="btn-trad"><img class="icon" src="https://static1.squarespace.com/static/53064d44e4b0fb69071da381/54da6721e4b05813e8332b2b/5b3519428a922d1856ec8131/1530206531671/icon_trad_interview.png?format=500w"/><br/>Traditional</button>';
+	let startButton = '<button class="grey-button" id="btn-start" name="start"><img class="random-icon" src="random.png" style="width: 150px; height: 150px;"/><br/>Random</button>';
+	let mmiButton = '<button class="type-button" name="mmi" id="btn-mmi"> <img class="icon" src="mmi.png" style="width: 150px; height: 150px;"/><br/>MMI</button>';
+	let traditionalButton = '<button class="type-button" name="traditional" id="btn-trad"><img class="icon" src="traditional.png" style="width: 150px; height: 150px;"/><br/>Traditional</button>';
 	$("#btn-mmi").slideDown(3000);
 	$('.home-body').append(mmiButton).append(traditionalButton).append(startButton);
 
